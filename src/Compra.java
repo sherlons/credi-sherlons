@@ -1,4 +1,5 @@
-public class Compra {
+
+public class Compra implements Comparable<Compra>{
     private String nombreProducto;
     private double valor;
 
@@ -6,9 +7,6 @@ public class Compra {
         this.nombreProducto = nombreProducto;
         this.valor = valor;
     }
-    //public boolean tienda(Compra compra){
-       // if (this.saldo >= compra.getValor())
-    //};
 
     public String getNombreProducto() {
         return nombreProducto;
@@ -17,4 +15,17 @@ public class Compra {
     public double getValor() {
         return valor;
     }
+
+    @Override
+    public String toString() {
+        return "Compra: nombreProducto ='" + nombreProducto + '\'' +
+                ", valor=" + valor +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Compra otraCompra) {
+        return Double.valueOf(this.valor).compareTo(Double.valueOf(otraCompra.getValor()));
+    }
 }
+

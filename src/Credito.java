@@ -12,6 +12,15 @@ public class Credito {
         this.saldo = topeCredito;
         this.listaDeCompras = new ArrayList<>();
     }
+    public boolean tienda(Compra compra) {
+        if (this.saldo >= compra.getValor()) {
+            this.saldo -= compra.getValor();
+            this.listaDeCompras.add(compra);
+            return true;
+        }
+        return false;
+    }
+
 
     public double getTopeCredito() {
         return topeCredito;
@@ -24,4 +33,5 @@ public class Credito {
     public List<Compra> getListaDeCompras() {
         return listaDeCompras;
     }
+
 }
